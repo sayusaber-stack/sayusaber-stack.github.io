@@ -1,16 +1,9 @@
-# Yuyi’s Journal
+# Yuyi’s Journal 2.0
 
-個人旅行、日記與生活部落格。
+這是一個可長期維護的個人旅行／日記網站，使用 GitHub Pages 靜態部署。
 
 ## 新增文章
-複製 `NEW-POST.md` 到 `_posts/`，依日期重新命名，修改文章內容，再加入圖片即可。
-
-## 圖片
-把照片放到 `assets/images/`，文章中用 Markdown：
-`![照片說明](/assets/images/檔名.jpg)`
+複製 `posts/welcome/index.html` 到 `posts/新文章/index.html`，修改內容，再把首頁、分類頁與 sitemap 加上新文章連結即可。
 
 ## 留言
-文章頁使用 Utterances，留言會以 GitHub Issue 的方式儲存。訪客需要 GitHub 登入。
-
-## GitHub Pages
-此網站是標準 Jekyll 結構，適合部署在 `sayusaber-stack.github.io`。
+文章使用 Utterances，留言會以 GitHub Issue 儲存；首次使用可能需要授權 Utterances 存取此公開 repository 的 Issues。
