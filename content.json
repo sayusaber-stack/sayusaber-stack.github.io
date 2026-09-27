@@ -1,11 +1,17 @@
 {
-  "brand": "Yuyi's Journal",
-  "tagline": "TRAVEL · DIARY · LIFE",
-  "eyebrow": "A PERSONAL JOURNAL",
-  "intro": "記錄旅行、生活與那些值得慢慢收藏的日常。",
-  "about_short": "這是一個屬於 Yuyi 的小小角落。旅行、生活、女兒、喜歡的事，以及想留住的每一個瞬間。",
-  "hero_image": "",
+  "latest_title": "Journeys & Days",
   "instagram_url": "",
+  "admin_label": "ADMIN",
+  "nav_diary": "DIARY",
+  "brand": "Yuyi's Journal",
+  "eyebrow": "A PERSONAL JOURNAL",
+  "about_short": "這是一個屬於 Yuyi 的小小角落。旅行、生活、女兒、喜歡的事，以及想留住的每一個瞬間。",
+  "footer_left": "Yuyi's Journal",
+  "intro": "記錄旅行、生活與那些值得慢慢收藏的日常。",
+  "tagline": "TRAVEL · DIARY · LIFE",
+  "latest_subtitle": "最近寫下的故事",
+  "about_heading": "A little corner\nof my life.",
+  "nav_about": "ABOUT",
   "posts": [
     {
       "title": "福岡｜一趟想慢慢走的旅行",
@@ -26,17 +32,21 @@
       "image_alt": "",
       "body": "這是 Yuyi's Journal 的第一篇文章。\n\n之後可以從網站的管理後台直接新增文章、修改文字、上傳照片，不需要再手動修改 GitHub 裡的程式碼。",
       "comments": true
+    },
+    {
+      "date": "2026-09-27",
+      "category": "Diary",
+      "comments": true,
+      "title": "這是一個個人網站的誕生日記📓",
+      "excerpt": "為什麼會有這個網站呢？這裡只記錄我生活中的美好😊還有心得\n",
+      "body": "因為本人在Line 上面打了一堆旅遊紀錄跟感想，結果都沒有人回覆，我跟萬能的老公說，都沒有人跟我回覆我打得文字耶！他說：那你應該要寫成一個遊記，我在網路上看過很多人分享，之後還能給大家查詢呀！\n\n但我怎麼可能會，於是我萬能的老公就幫我架設一個網站讓我記錄，他說等以後很常寫再來幫我上架給大家看到🤣🤣💪不知道我能寫多久 是我自己想到什麼就寫什麼的私人天地",
+      "image": "/img_9880.jpeg",
+      "image_alt": "昨晚看電影散場後，中秋節的月亮"
     }
   ],
+  "hero_image": "",
   "nav_travel": "TRAVEL",
-  "nav_diary": "DIARY",
-  "nav_life": "LIFE",
-  "nav_about": "ABOUT",
-  "admin_label": "ADMIN",
-  "latest_title": "Journeys & Days",
-  "latest_subtitle": "最近寫下的故事",
   "archive_label": "VIEW ARCHIVE →",
-  "about_heading": "A little corner\nof my life.",
-  "footer_left": "Yuyi's Journal",
+  "nav_life": "LIFE",
   "footer_right": "TRAVEL · DIARY · LIFE · MADE WITH LOVE"
 }
