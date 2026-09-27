@@ -1,0 +1,20 @@
+title: "Yuyi’s Journal"
+description: "旅行、日常、生活札記"
+url: "https://sayusaber-stack.github.io"
+baseurl: ""
+lang: zh-Hant
+timezone: Asia/Taipei
+permalink: /:categories/:title/
+author:
+  name: Yuyi
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      comments: true
+      author: Yuyi

@@ -1,0 +1,7 @@
+---
+layout: default
+title: Home
+---
+<section class="hero"><div><p class="eyebrow">A LITTLE ARCHIVE OF MY LIFE</p><h1>Yuyi’s<br><em>Journal</em></h1><p class="lead">旅行、日常、喜歡的人與地方，以及那些當下覺得平凡，後來卻很想記住的時刻。</p><a class="button" href="{{ '/travel/' | relative_url }}">Explore my journeys →</a></div><div class="hero-frame"><div class="ornament">✦</div><div class="hero-note">TRAVEL · LIFE · DIARY</div></div></section>
+<section class="section"><div class="section-head"><div><p class="eyebrow">RECENT STORIES</p><h2>Latest from my journal</h2></div><a href="{{ '/archive/' | relative_url }}">View all →</a></div><div class="cards">{% for post in site.posts limit:6 %}<article class="card"><a href="{{ post.url | relative_url }}"><div class="card-image" {% if post.image %}style="background-image:url('{{ post.image | relative_url }}')"{% endif %}><span>{{ post.category | upcase }}</span></div></a><div class="card-body"><p class="meta">{{ post.date | date: "%Y.%m.%d" }} · {{ post.location }}</p><h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3><p>{{ post.excerpt | strip_html | truncate:110 }}</p></div></article>{% endfor %}</div></section>
+<section class="about-band"><p class="eyebrow">ABOUT YUYI</p><h2>A quiet place for memories.</h2><p>這是一個屬於我的小小角落。沒有固定更新頻率，只想把旅行與生活裡值得記得的事情，好好收藏起來。</p><a href="{{ '/about/' | relative_url }}">More about me →</a></section>
