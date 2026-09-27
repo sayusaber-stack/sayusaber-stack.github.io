@@ -1,0 +1,56 @@
+backend:
+  name: turbo-github
+  turbo_site_id: REPLACE_WITH_YOUR_DECAP_TURBO_SITE_ID
+  branch: main
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+locale: "zh_Hant"
+
+site_url: "https://sayusaber-stack.github.io"
+display_url: "https://sayusaber-stack.github.io"
+logo_url: "https://sayusaber-stack.github.io/assets/uploads/yuyis-journal-mark.svg"
+
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "-"
+
+publish_mode: simple
+
+collections:
+  - name: "posts"
+    label: "文章"
+    label_singular: "文章"
+    folder: "_posts"
+    create: true
+    extension: "md"
+    format: "frontmatter"
+    identifier_field: "title"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    preview_path: "posts/{{slug}}/"
+    fields:
+      - { label: "標題", name: "title", widget: "string" }
+      - { label: "日期", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss ZZ", default: "{{now}}" }
+      - { label: "分類", name: "category", widget: "select", options: ["Travel", "Diary", "Life"], default: "Diary" }
+      - { label: "摘要", name: "excerpt", widget: "text", required: false }
+      - { label: "封面照片", name: "image", widget: "image", required: false }
+      - { label: "照片說明", name: "image_alt", widget: "string", required: false }
+      - { label: "文章內容", name: "body", widget: "markdown" }
+      - { label: "開啟留言", name: "comments", widget: "boolean", default: true }
+
+  - name: "settings"
+    label: "網站設定"
+    files:
+      - label: "首頁與關於"
+        name: "site_settings"
+        file: "_data/site.yml"
+        fields:
+          - { label: "網站名稱", name: "brand", widget: "string" }
+          - { label: "副標題", name: "tagline", widget: "string" }
+          - { label: "首頁小標", name: "eyebrow", widget: "string" }
+          - { label: "首頁介紹", name: "intro", widget: "text" }
+          - { label: "關於我", name: "about_short", widget: "text" }
+          - { label: "首頁主視覺", name: "hero_image", widget: "image", required: false }
+          - { label: "Instagram", name: "instagram_url", widget: "string", required: false }

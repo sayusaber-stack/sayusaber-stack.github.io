@@ -1,0 +1,27 @@
+title: "Yuyi's Journal"
+description: "A personal journal of travel, life, and everyday memories."
+url: "https://sayusaber-stack.github.io"
+baseurl: ""
+lang: "zh-Hant"
+timezone: "Asia/Taipei"
+permalink: /posts/:title/
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+plugins:
+  - jekyll-seo-tag
+  - jekyll-feed
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      comments: true
+      author: "Yuyi"
+exclude:
+  - README.md
+  - README.txt
+  - SETUP-FIRST.txt
+  - node_modules
