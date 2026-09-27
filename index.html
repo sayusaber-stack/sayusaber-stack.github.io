@@ -1,0 +1,27 @@
+---
+layout: default
+---
+<main>
+  <section class="category-hero">
+    <div class="eyebrow">LIFE</div>
+    <h1>Life & Little Things</h1>
+    <p>生活裡值得留下來的小事。</p>
+  </section>
+  <section class="section" style="padding-top:20px">
+    <div class="posts">
+    {% assign posts = site.posts | where: "category", "Life" | sort: "date" | reverse %}
+    {% for post in posts %}
+      <a class="card" href="{{ post.url | relative_url }}">
+        <div class="card-image">{% if post.image %}<img src="{{ post.image | relative_url }}" alt="{{ post.image_alt | default: post.title }}">{% endif %}</div>
+        <div class="card-body">
+          <div class="meta">{{ post.date | date: "%Y.%m.%d" }}</div>
+          <h3>{{ post.title }}</h3>
+          {% if post.excerpt %}<div class="excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</div>{% endif %}
+        </div>
+      </a>
+    {% else %}
+      <div class="notice" style="grid-column:1/-1">還沒有文章。你可以從後台新增第一篇。</div>
+    {% endfor %}
+    </div>
+  </section>
+</main>
