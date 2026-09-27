@@ -5,7 +5,7 @@
   "nav_diary": "DIARY",
   "brand": "Yuyi's Journal",
   "eyebrow": "A PERSONAL JOURNAL",
-  "about_short": "這是一個屬於 Yuyi 的小小角落。旅行、生活、女兒、喜歡的事，以及想留住的每一個瞬間。",
+  "about_short": "這是一個屬於 Yuyi 的小小角落。旅行、生活、女兒、喜歡的事，以及想留住的每一個瞬間。每天等謝謝所有發生在身上的所有事情，點點滴滴☝️",
   "footer_left": "Yuyi's Journal",
   "intro": "記錄旅行、生活與那些值得慢慢收藏的日常。",
   "tagline": "TRAVEL · DIARY · LIFE",
@@ -44,7 +44,7 @@
       "image_alt": "昨晚看電影散場後，中秋節的月亮"
     }
   ],
-  "hero_image": "",
+  "hero_image": "/img_9887.jpeg",
   "nav_travel": "TRAVEL",
   "archive_label": "VIEW ARCHIVE →",
   "nav_life": "LIFE",
