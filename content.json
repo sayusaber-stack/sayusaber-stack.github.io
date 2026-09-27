@@ -5,9 +5,9 @@
   "nav_diary": "DIARY",
   "brand": "Yuyi's Journal",
   "eyebrow": "A PERSONAL JOURNAL",
-  "about_short": "這是一個屬於 Yuyi 的小小角落。旅行、生活、女兒、喜歡的事，以及想留住的每一個瞬間。每天等謝謝所有發生在身上的所有事情，點點滴滴☝️",
-  "footer_left": "Yuyi's Journal",
-  "intro": "記錄旅行、生活與那些值得慢慢收藏的日常。",
+  "about_short": "這是一個屬於 Yuyi 的小小角落。旅行、生活、女兒、喜歡的事，想留住的每一個瞬間。每天等謝謝所有發生在身上的所有事情，點點滴滴☝️🫶🏻",
+  "footer_left": "Yuyi's Journal無名小站",
+  "intro": "我的無名小站😆記錄旅行、生活與那些值得慢慢收藏的日常。",
   "tagline": "TRAVEL · DIARY · LIFE",
   "latest_subtitle": "最近寫下的故事",
   "about_heading": "A little corner\nof my life.",
@@ -32,6 +32,15 @@
       "image_alt": "",
       "body": "福岡，是一個很適合慢慢走的地方。\n\n之後可以在這裡放旅程故事、照片、餐廳、住宿，以及那些只有自己記得的小片段。\n\n> 在旅行裡，把時間留給自己。",
       "comments": true
+    },
+    {
+      "date": "2024-10-27",
+      "category": "Diary",
+      "comments": true,
+      "title": "2024年10月的法國🇫🇷英國遊記",
+      "image": "/img_7462_original.jpeg",
+      "excerpt": "2024年，帶著九個月的小小孩跟第一次踏入歐洲的大長輩媽媽一起到法國英國🇫🇷🇬🇧",
+      "body": "![](/img_4804.jpeg)\n\n到法國的第一天，我就突然上吐下瀉，躺了三天才有辦法出門，那時候真的好痛苦想說慘了😭才剛開始該不會要躺整個旅程吧"
     }
   ],
   "hero_image": "/img_9887.jpeg",
