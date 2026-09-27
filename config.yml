@@ -1,0 +1,57 @@
+backend:
+  name: turbo-github
+  turbo_site_id: cb53e9f8-393a-49ea-ab0a-cab28aae4787
+  branch: main
+
+# 這個版本刻意把 CMS 設定放在 repo 根目錄，
+# 因此可以用 GitHub 網頁一次上傳所有檔案，不需要 admin/ 資料夾。
+media_folder: "."
+public_folder: "/"
+
+locale: "zh_Hant"
+site_url: "https://sayusaber-stack.github.io"
+display_url: "https://sayusaber-stack.github.io"
+logo_url: "https://sayusaber-stack.github.io/yuyis-journal-mark.svg"
+
+publish_mode: simple
+
+collections:
+  - name: "content"
+    label: "網站內容"
+    files:
+      - label: "首頁、關於與文章"
+        name: "site_content"
+        file: "content.json"
+        format: "json"
+        fields:
+          - { label: "網站名稱", name: "brand", widget: "string" }
+          - { label: "副標題", name: "tagline", widget: "string" }
+          - { label: "首頁小標", name: "eyebrow", widget: "string" }
+          - { label: "首頁介紹", name: "intro", widget: "text" }
+          - { label: "關於我", name: "about_short", widget: "text" }
+          - { label: "首頁主視覺", name: "hero_image", widget: "image", required: false }
+          - { label: "Instagram", name: "instagram_url", widget: "string", required: false }
+          - { label: "導覽｜Travel", name: "nav_travel", widget: "string" }
+          - { label: "導覽｜Diary", name: "nav_diary", widget: "string" }
+          - { label: "導覽｜Life", name: "nav_life", widget: "string" }
+          - { label: "導覽｜About", name: "nav_about", widget: "string" }
+          - { label: "導覽｜管理後台", name: "admin_label", widget: "string" }
+          - { label: "首頁文章區標題", name: "latest_title", widget: "string" }
+          - { label: "首頁文章區副標", name: "latest_subtitle", widget: "string" }
+          - { label: "首頁文章區右側連結", name: "archive_label", widget: "string" }
+          - { label: "關於區標題", name: "about_heading", widget: "text" }
+          - { label: "頁尾左側", name: "footer_left", widget: "string" }
+          - { label: "頁尾右側", name: "footer_right", widget: "string" }
+          - label: "文章"
+            name: "posts"
+            widget: "list"
+            summary: "{{title}} · {{category}} · {{date}}"
+            fields:
+              - { label: "標題", name: "title", widget: "string" }
+              - { label: "日期", name: "date", widget: "datetime", format: "YYYY-MM-DD", default: "{{now}}" }
+              - { label: "分類", name: "category", widget: "select", options: ["Travel", "Diary", "Life"], default: "Diary" }
+              - { label: "摘要", name: "excerpt", widget: "text", required: false }
+              - { label: "封面照片", name: "image", widget: "image", required: false }
+              - { label: "照片說明", name: "image_alt", widget: "string", required: false }
+              - { label: "文章內容", name: "body", widget: "markdown" }
+              - { label: "開啟留言", name: "comments", widget: "boolean", default: true }

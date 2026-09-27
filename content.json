@@ -1,0 +1,42 @@
+{
+  "brand": "Yuyi's Journal",
+  "tagline": "TRAVEL · DIARY · LIFE",
+  "eyebrow": "A PERSONAL JOURNAL",
+  "intro": "記錄旅行、生活與那些值得慢慢收藏的日常。",
+  "about_short": "這是一個屬於 Yuyi 的小小角落。旅行、生活、女兒、喜歡的事，以及想留住的每一個瞬間。",
+  "hero_image": "",
+  "instagram_url": "",
+  "posts": [
+    {
+      "title": "福岡｜一趟想慢慢走的旅行",
+      "date": "2026-09-27",
+      "category": "Travel",
+      "excerpt": "旅行不一定要趕景點，有時候慢慢走，就是最好的行程。",
+      "image": "",
+      "image_alt": "",
+      "body": "福岡，是一個很適合慢慢走的地方。\n\n之後可以在這裡放旅程故事、照片、餐廳、住宿，以及那些只有自己記得的小片段。\n\n> 在旅行裡，把時間留給自己。",
+      "comments": true
+    },
+    {
+      "title": "Welcome to Yuyi's Journal",
+      "date": "2026-09-27",
+      "category": "Diary",
+      "excerpt": "把旅行、生活與那些值得記住的小事，慢慢寫下來。",
+      "image": "",
+      "image_alt": "",
+      "body": "這是 Yuyi's Journal 的第一篇文章。\n\n之後可以從網站的管理後台直接新增文章、修改文字、上傳照片，不需要再手動修改 GitHub 裡的程式碼。",
+      "comments": true
+    }
+  ],
+  "nav_travel": "TRAVEL",
+  "nav_diary": "DIARY",
+  "nav_life": "LIFE",
+  "nav_about": "ABOUT",
+  "admin_label": "ADMIN",
+  "latest_title": "Journeys & Days",
+  "latest_subtitle": "最近寫下的故事",
+  "archive_label": "VIEW ARCHIVE →",
+  "about_heading": "A little corner\nof my life.",
+  "footer_left": "Yuyi's Journal",
+  "footer_right": "TRAVEL · DIARY · LIFE · MADE WITH LOVE"
+}
