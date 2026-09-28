@@ -145,8 +145,7 @@ function renderHome(){
     <div class="posts">${posts.length?posts.slice(0,6).map(card).join(""):`<div class="notice" style="grid-column:1/-1">目前沒有文章。</div>`}</div></section>
     <section class="section"><div class="about-box"><h3>${esc(site.about_heading||"A little corner\nof my life.").replace(/\n/g,"<br>")}</h3><p>${esc(site.about_short)}</p></div></section>
   </main>${footer()}`;
-  incrementCounter("site","global");
-  showCounter(document.getElementById("siteViews"),"site","global");
+  incrementCounter("site","global").then(()=>showCounter(document.getElementById("siteViews"),"site","global"));
 }
 function renderArchive(){
   document.title=`Archive · ${site.brand}`;
@@ -170,8 +169,7 @@ function renderPost(){
     <h1 class="article-title">${esc(p.title)}</h1><div class="article-meta">${fmtDate(p.date)} · Yuyi <span id="postViews"></span></div>
     ${cover}<article class="article-content">${markedSafe(p.body||"")}</article>${comments}
   </main>${footer()}`;
-  incrementCounter("post",postSlug(p));
-  showCounter(document.getElementById("postViews"),"post",postSlug(p));
+  incrementCounter("post",postSlug(p)).then(()=>showCounter(document.getElementById("postViews"),"post",postSlug(p)));
   if(p.comments!==false) setupComments(document.getElementById("commentsMount"),p);
 }
 (async()=>{
