@@ -1,1 +1,9 @@
-window.FIREBASE_CONFIG={apiKey:"",authDomain:"",projectId:"",storageBucket:"",messagingSenderId:"",appId:""};
+window.FIREBASE_CONFIG={
+  apiKey:"AIzaSyD6YlPIDeCzILW23vroZIJ844xPHwE6biw",
+  authDomain:"yuyis-journal.firebaseapp.com",
+  projectId:"yuyis-journal",
+  storageBucket:"yuyis-journal.firebasestorage.app",
+  messagingSenderId:"537775264543",
+  appId:"1:537775264543:web:588bdd21535189d3e6562a",
+  measurementId:"G-Q4SFQVG4EE"
+};
