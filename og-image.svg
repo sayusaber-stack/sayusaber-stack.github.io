@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<rect width="1200" height="630" fill="#eee7d8"/>
+<rect x="38" y="38" width="1124" height="554" rx="8" fill="#f7f1e4" stroke="#1f3a2f" stroke-width="5"/>
+<path d="M70 470 C260 390 390 500 560 425 S900 360 1130 450" fill="none" stroke="#c7b27a" stroke-width="3"/>
+<path d="M70 505 C250 430 400 545 585 470 S920 405 1130 490" fill="none" stroke="#d8c99f" stroke-width="2"/>
+<g transform="translate(95 105) rotate(-3)">
+  <rect x="0" y="0" width="430" height="300" rx="14" fill="#203b31" stroke="#172c24" stroke-width="8"/>
+  <path d="M24 30 H406 M24 270 H406" stroke="#aa8a4b" stroke-width="3" opacity=".8"/>
+  <rect x="175" y="0" width="80" height="300" fill="#1b332b" opacity=".45"/>
+  <circle cx="215" cy="150" r="45" fill="none" stroke="#c5a86a" stroke-width="4"/>
+  <path d="M215 118 l9 23 25 2-19 16 6 24-21-13-21 13 6-24-19-16 25-2z" fill="none" stroke="#c5a86a" stroke-width="3"/>
+</g>
+<g transform="translate(690 110)">
+  <rect x="0" y="0" width="390" height="250" fill="#e4d8bd" stroke="#b9a77c" stroke-width="3" transform="rotate(4)"/>
+  <path d="M35 50 C100 20 160 80 220 40 S330 65 360 25 M25 125 C95 95 150 160 230 110 S325 135 370 95 M45 200 C120 170 170 230 250 185 S330 210 370 175" fill="none" stroke="#7f8b76" stroke-width="4" opacity=".75"/>
+  <path d="M70 25 L110 220 M160 10 L190 225 M260 20 L245 220 M335 25 L300 220" stroke="#b59c6a" stroke-width="2" opacity=".8"/>
+</g>
+<g transform="translate(550 400)">
+  <rect x="0" y="0" width="360" height="20" rx="10" fill="#6d4f35"/>
+  <rect x="70" y="-8" width="220" height="36" rx="18" fill="#172f28"/>
+  <rect x="95" y="-2" width="170" height="8" rx="4" fill="#c6a764"/>
+  <circle cx="275" cy="10" r="8" fill="#c6a764"/>
+</g>
+<text x="600" y="535" text-anchor="middle" fill="#203b31" font-family="Georgia,Times New Roman,serif" font-size="48" letter-spacing="8">YUYI'S JOURNAL</text>
+<text x="600" y="570" text-anchor="middle" fill="#7d6c4d" font-family="Georgia,Times New Roman,serif" font-size="20" letter-spacing="4">JOURNEYS · DAYS · DETAILS</text>
+</svg>
