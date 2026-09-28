@@ -1,4 +1,73 @@
 const $ = (s) => document.querySelector(s);
+let firebaseReady=false,fb=null;
+async function initFirebase(){
+  try{
+    const c=window.FIREBASE_CONFIG||{};
+    if(!c.apiKey||!c.projectId||!c.appId)return false;
+    const [core,authMod,fsMod]=await Promise.all([
+      import("https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js"),
+      import("https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js"),
+      import("https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js")
+    ]);
+    const app=core.initializeApp(c);
+    fb={...authMod,...fsMod,auth:authMod.getAuth(app),db:fsMod.getFirestore(app)};
+    firebaseReady=true; return true;
+  }catch(e){console.warn("Firebase 尚未啟用",e);return false;}
+}
+async function incrementCounter(kind,id){
+  if(!firebaseReady)return;
+  try{
+    const ref=fb.doc(fb.db,"counters",kind+":"+id);
+    await fb.setDoc(ref,{value:fb.increment(1),updatedAt:new Date().toISOString()},{merge:true});
+  }catch(e){console.warn("計數器更新失敗",e);}
+}
+async function getCounter(kind,id){
+  if(!firebaseReady)return null;
+  try{
+    const s=await fb.getDoc(fb.doc(fb.db,"counters",kind+":"+id));
+    return s.exists()?Number(s.data().value||0):0;
+  }catch(e){return null;}
+}
+async function showCounter(el,kind,id){
+  const v=await getCounter(kind,id);
+  if(el&&v!==null)el.textContent="👁 "+v.toLocaleString("zh-TW")+" 次瀏覽";
+}
+async function setupComments(container,p){
+  if(!firebaseReady){
+    container.innerHTML='<div class="comment-muted">留言功能尚未啟用。</div>';
+    return;
+  }
+  const {GoogleAuthProvider,signInWithPopup,onAuthStateChanged,signOut,collection,query,where,orderBy,getDocs,addDoc,serverTimestamp}=fb;
+  let user=null;
+  async function loadComments(){
+    const list=document.getElementById("commentList"); if(!list)return;
+    try{
+      const q=query(collection(fb.db,"comments"),where("postSlug","==",postSlug(p)),orderBy("createdAt","desc"));
+      const snap=await getDocs(q);
+      list.innerHTML=snap.empty?'<div class="comment-muted">目前還沒有留言，歡迎留下第一則。</div>':
+        snap.docs.map(d=>{const x=d.data();return '<div class="comment-item"><b>'+esc(x.name||"Google 使用者")+'</b><div>'+esc(x.text||"").replace(/\n/g,"<br>")+'</div></div>';}).join("");
+    }catch(e){list.innerHTML='<div class="comment-muted">留言暫時無法載入。</div>';}
+  }
+  async function draw(){
+    container.innerHTML=user?
+      '<div class="comment-user">👤 '+esc(user.displayName||"Google 使用者")+' <button class="comment-link" id="logoutComment">登出</button></div>'+
+      '<form class="comment-form" id="commentForm"><textarea id="commentText" maxlength="1000" required placeholder="寫下你的留言…"></textarea><button type="submit">發表留言</button></form><div id="commentList"></div>':
+      '<button class="google-login" id="googleLogin">使用 Google 登入留言</button><div id="commentList"></div>';
+    if(!user){
+      document.getElementById("googleLogin").onclick=async()=>{try{await signInWithPopup(fb.auth,new GoogleAuthProvider());}catch(e){alert("Google 登入未完成，請確認 Firebase 已啟用 Google 登入。");}};
+    }else{
+      document.getElementById("logoutComment").onclick=()=>signOut(fb.auth);
+      document.getElementById("commentForm").onsubmit=async e=>{
+        e.preventDefault(); const text=document.getElementById("commentText").value.trim(); if(!text)return;
+        await addDoc(collection(fb.db,"comments"),{postSlug:postSlug(p),name:user.displayName||"Google 使用者",uid:user.uid,text,createdAt:serverTimestamp()});
+        document.getElementById("commentText").value=""; loadComments();
+      };
+    }
+    loadComments();
+  }
+  onAuthStateChanged(fb.auth,u=>{user=u;draw();});
+}
+
 let site = null;
 
 function esc(v=""){
@@ -88,18 +157,17 @@ function renderPost(){
   if(!p){document.body.innerHTML=nav()+`<main><section class="section"><div class="notice">找不到這篇文章。</div></section></main>${footer()}`;return;}
   document.title=`${p.title} · ${site.brand}`;
   const cover=p.image?`<div class="article-cover"><img src="${esc(p.image)}" alt="${esc(p.image_alt||p.title)}"></div>`:"";
-  const comments=p.comments!==false?`<section class="comments"><h3>Leave a note</h3>
-    <script src="https://utteranc.es/client.js" repo="sayusaber-stack/sayusaber-stack.github.io" issue-term="pathname" label="comments" theme="github-light" crossorigin="anonymous" async></script>
-  </section>`:"";
+  const comments=p.comments!==false?`<section class="comments"><h3>Leave a note</h3><div id="commentsMount"><div class="comment-muted">留言載入中…</div></div></section>`:"";
   document.body.innerHTML=nav()+`<main class="article-wrap">
     <div class="article-kicker">${esc((p.category||"Diary").toUpperCase())}</div>
-    <h1 class="article-title">${esc(p.title)}</h1><div class="article-meta">${fmtDate(p.date)} · Yuyi</div>
+    <h1 class="article-title">${esc(p.title)}</h1><div class="article-meta">${fmtDate(p.date)} · Yuyi <span id="postViews"></span></div>
     ${cover}<article class="article-content">${markedSafe(p.body||"")}</article>${comments}
   </main>${footer()}`;
 }
 (async()=>{
   try{
     await load();
+    await initFirebase();
     const page=location.pathname.split("/").pop().toLowerCase()||"index.html";
     if(page==="archive.html") renderArchive();
     else if(page==="about.html") renderAbout();
