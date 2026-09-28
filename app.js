@@ -37,15 +37,20 @@ async function setupComments(container,p){
     container.innerHTML='<div class="comment-muted">留言功能尚未啟用。</div>';
     return;
   }
-  const {GoogleAuthProvider,signInWithPopup,onAuthStateChanged,signOut,collection,query,where,orderBy,getDocs,addDoc,serverTimestamp}=fb;
+  const {GoogleAuthProvider,signInWithPopup,onAuthStateChanged,signOut,collection,query,where,getDocs,addDoc,serverTimestamp}=fb;
   let user=null;
   async function loadComments(){
     const list=document.getElementById("commentList"); if(!list)return;
     try{
-      const q=query(collection(fb.db,"comments"),where("postSlug","==",postSlug(p)),orderBy("createdAt","desc"));
+      const q=query(collection(fb.db,"comments"),where("postSlug","==",postSlug(p)));
       const snap=await getDocs(q);
-      list.innerHTML=snap.empty?'<div class="comment-muted">目前還沒有留言，歡迎留下第一則。</div>':
-        snap.docs.map(d=>{const x=d.data();return '<div class="comment-item"><b>'+esc(x.name||"Google 使用者")+'</b><div>'+esc(x.text||"").replace(/\n/g,"<br>")+'</div></div>';}).join("");
+      const docs=snap.docs.sort((a,b)=>{
+        const ta=a.data().createdAt?.toMillis?.()||0;
+        const tb=b.data().createdAt?.toMillis?.()||0;
+        return tb-ta;
+      });
+      list.innerHTML=!docs.length?'<div class="comment-muted">目前還沒有留言，歡迎留下第一則。</div>':
+        docs.map(d=>{const x=d.data();return '<div class="comment-item"><b>'+esc(x.name||"Google 使用者")+'</b><div>'+esc(x.text||"").replace(/\n/g,"<br>")+'</div></div>';}).join("");
     }catch(e){list.innerHTML='<div class="comment-muted">留言暫時無法載入。</div>';}
   }
   async function draw(){
@@ -140,6 +145,8 @@ function renderHome(){
     <div class="posts">${posts.length?posts.slice(0,6).map(card).join(""):`<div class="notice" style="grid-column:1/-1">目前沒有文章。</div>`}</div></section>
     <section class="section"><div class="about-box"><h3>${esc(site.about_heading||"A little corner\nof my life.").replace(/\n/g,"<br>")}</h3><p>${esc(site.about_short)}</p></div></section>
   </main>${footer()}`;
+  incrementCounter("site","global");
+  showCounter(document.getElementById("siteViews"),"site","global");
 }
 function renderArchive(){
   document.title=`Archive · ${site.brand}`;
@@ -163,6 +170,9 @@ function renderPost(){
     <h1 class="article-title">${esc(p.title)}</h1><div class="article-meta">${fmtDate(p.date)} · Yuyi <span id="postViews"></span></div>
     ${cover}<article class="article-content">${markedSafe(p.body||"")}</article>${comments}
   </main>${footer()}`;
+  incrementCounter("post",postSlug(p));
+  showCounter(document.getElementById("postViews"),"post",postSlug(p));
+  if(p.comments!==false) setupComments(document.getElementById("commentsMount"),p);
 }
 (async()=>{
   try{
