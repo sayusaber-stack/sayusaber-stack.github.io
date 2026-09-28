@@ -12,3 +12,9 @@
 .comments{margin-top:70px;padding-top:30px;border-top:1px solid var(--line)}.comments h3{font-family:"Cormorant Garamond",serif;font-size:30px}
 .site-footer{max-width:1120px;margin:50px auto 0;padding:35px 24px 55px;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:var(--muted);font-family:"Cormorant Garamond",serif;letter-spacing:.08em}.notice{background:var(--paper);border:1px solid var(--line);padding:24px;color:var(--muted)}
 @media(max-width:800px){.nav{padding:14px 18px}.navlinks{gap:12px;font-size:13px}.brand{font-size:24px}.hero{grid-template-columns:1fr;padding-top:55px;gap:30px}.hero-photo{min-height:300px}.hero-photo img,.hero-placeholder{min-height:275px;height:275px}.posts{grid-template-columns:1fr}.section{padding:48px 18px}.section h2{font-size:42px}.about-box{grid-template-columns:1fr;padding:28px}.page-title{padding:55px 18px 20px}.page-title h1{font-size:54px}.article-wrap{padding:55px 18px}.article-content{font-size:17px}.site-footer{padding-left:18px;padding-right:18px;display:block}.site-footer div+div{margin-top:8px}}
+
+
+.site-stats{font-family:"Cormorant Garamond",serif;color:var(--muted);margin-bottom:18px}
+.view-count{margin-left:8px}.google-login,.comment-form button{border:1px solid var(--gold);background:var(--paper);color:var(--ink);padding:10px 18px;cursor:pointer;font-family:inherit}
+.comment-form{margin:18px 0}.comment-form textarea{width:100%;min-height:110px;resize:vertical;border:1px solid var(--line);background:var(--paper);padding:14px;font:inherit;color:var(--ink);display:block;margin-bottom:10px}
+.comment-user{margin:15px 0}.comment-link{border:0;background:none;color:var(--gold);cursor:pointer;font-family:inherit}.comment-list{margin-top:25px}.comment-item{padding:18px 0;border-top:1px solid var(--line)}.comment-muted{color:var(--muted);font-size:14px}
