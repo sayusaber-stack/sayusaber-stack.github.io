@@ -133,7 +133,7 @@ function renderHome(){
     </div><div class="hero-photo">
       ${site.hero_image?`<img src="${esc(site.hero_image)}" alt="${esc(site.brand)}">`:`<div class="hero-placeholder">YUYI'S JOURNAL</div>`}
     </div></section>
-    <section class="section"><div class="section-head">
+    <section class="section"><div class="site-stats"><span id="siteViews"></span></div><div class="section-head">
       <div><h2>${cat?esc(cat):(site.latest_title||"Journeys & Days")}</h2><p class="section-sub">${cat?"分類文章":esc(site.latest_subtitle||"最近寫下的故事")}</p></div>
       <a class="viewall" href="archive.html">${esc(site.archive_label||"VIEW ARCHIVE →")}</a>
     </div>
